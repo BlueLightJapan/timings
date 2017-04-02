@@ -1,13 +1,15 @@
-Aikar's Minecraft Timings Viewer
+Aikar's Minecraft Timings Viewer (BlueLight フォーク)
 =======
 
-This is the system behind <http://timings.aikar.co/> that processes timing reports.
-This code base is primarily targeting Timings v2, currently released for PaperSpigot and SpongeForge.
-
-It is unknown when it will be added to Spigot, so we suggest moving to PaperSpigot! [Learn More and Get PaperSpigot here](https://paper.readthedocs.org/en/paper-1.8/)
-
-If you can think of something to improve the system please feel free to PR it.
+ <http://timings.aikar.co/> の旧バージョン、日本語版です。　ｖ１バージョンとなります。
  
+ 
+Installation
+======
+composer,php,nodejsが必要です
+ git clone https://github.com/BlueLightJapan/timings/
+ npm rebuild
+ php composer.php update
 
 Contributing
 ======
@@ -46,29 +48,6 @@ You may create config.dev.ini to override config options like so:
 >custom_security="../security/security.php"  
 >dev_id=ae6cfe033ca541f39a0fc52c3b51b2e1
 
-Current Priorities
-=====
-
-Updating the web UI to include plugin data, per-timings (v1 style) data, config viewing, "chunk/region" reports, is a top priority.
-
-Also anything to make the web UI LOOK better is needed. Current idea is to use Polymer UI components.
-
-JS to DART
-======
-
-We are migrating the JS front end code to Dart, as Dart is a nicer language and gives us a project to learn it. This is still pending so try
-to hold off on major JS changes until that is done and you then write the change in Dart.
-
-Timings File Format
-======
-The timings v2 file format is not designed for public use. It is highly condensed and meant to be specially known how to parse it.
-
-While the overall structure of the file is now done, we are still planning future additions to the data dump.
-
-We ask that instead of trying to parse this file for your needs, to instead PR the change to this project instead so
-everyone can benefit from it.
-
-This file format is proprietary and may change without notice. 
 
 License
 ======
