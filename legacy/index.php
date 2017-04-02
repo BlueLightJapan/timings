@@ -272,11 +272,9 @@ if (!$legacyData) {
 
 	?>
 	<div style="padding:50px;margin:auto;text-align: center">
-		To use the Timings parser, please type <b>/timings paste</b> in game, console or RCON.
-		It will then give you a link to view it on this page.<br/><br/>
-
-		The old Paste option has been removed for now as it is not needed.
-	</div>
+		Timingsを使うには、 <b>/timings paste</b>　		
+とマインクラフトサーバーでコマンドを実行しすると、timingsを見るためのリンクが表示されます。	
+</div>
 
 	<?php
 
