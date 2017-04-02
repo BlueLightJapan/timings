@@ -10,5 +10,9 @@
  */
 namespace Starlis\Timings;
 
+if(!isset($_GET['url'])) {
+      $_GET['url'] = "welcome";
+}
+
 require_once "init.php";
 Timings::bootstrap();
