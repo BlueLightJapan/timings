@@ -386,7 +386,7 @@ if ($sample) {
 			echo "\t    $sevent\n</pre></span>";
 		}
 		if ($hiddenelem) {
-			echo "<button class='show_rest'>Show rest...</button><br />";
+			echo "<button class='show_rest'>もっと見る...</button><br />";
 		}
 
 		echo '</div>';
@@ -490,7 +490,7 @@ if ($sample) {
 <?php
 
 function showInfo($id, $title) {
-	return "<b>$title</b><button class='learnmore' info='$id' onclick='showInfo(this)' title='$title'>さらに表示</button></b>";
+	return "<b>$title</b><button class='learnmore' info='$id' onclick='showInfo(this)' title='$title'>詳しく見る</button></b>";
 }
 
 $buffer = ob_get_contents();
