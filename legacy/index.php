@@ -195,16 +195,10 @@ ob_start();
 <?php echo '<!-- ' . $totalTimings . ' -->'; ?>
 <div style="text-align: center;margin: auto">
 	<div style="text-align:center;width: 310px;margin:auto;float: left">
-		<br/>
-		&copy; Aikar of <a href='http://ref.emc.gs/?gas=timingsphp' rel="nofollow">Empire Minecraft</a><br/>
-		<a href="http://github.com/aikar/timings" title="Source Code">[source]</a> 
-			Has timings helped you solve issues with performance? Consider
-			<a
-			href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=payments%40starlis%2ecom&lc=US&item_name=Aikar%20Timings&no_note=0&currency_code=USD"><b>[donating]</b></a>
+		<a href="http://github.com/bluelightjapan/timings" title="Source Code">[source]</a>
 		<br/>
 
-		<p>For Timings v2, a much more in depth system, you need to use<br />
-			<a href="https://paper.emc.gs" title="Paper - Minecraft Server">Paper Minecraft Server</a> (Spigot Fork).<br/>
+		<p>Aikar制作のtimingsを日本語化し、PocketMine/Nukkit向けにしたものです
 		</p>
 	</div>
 
@@ -212,14 +206,10 @@ ob_start();
 		<br/>
 
 		<div style="text-align:center;margin:auto">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<ins class="adsbygoogle responsive-ad"
-			     style="display:inline-block;"
-			     data-ad-client="ca-pub-9196273905174409"
-			     data-ad-slot="8082511770"></ins>
-			<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
+            <?php
+            require_once("../template/ads.php");
+            \Starlis\Timings\echoad();
+            ?>
 		</div>
 
 
@@ -248,14 +238,10 @@ ob_start();
 <?php
 */ ?>
 <div style="width:100%;clear:left;">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<ins class="adsbygoogle"
-	     style="clear:left;margin-top:20px;display:inline-block;width:728px;height:15px"
-	     data-ad-client="ca-pub-9196273905174409"
-	     data-ad-slot="2035978176"></ins>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
+ <?php
+ require_once("../template/ads.php");
+ \Starlis\Timings\echoad();
+ ?>
 </div>
 <hr style="clear:left"/>
 <?php
@@ -280,7 +266,7 @@ if (!$legacyData) {
 
 } else {
 if ($highEntityTick) {
-	$recommendations[] = "Consider reducing your entity-activation-range settings, as your activation rate is high (" . $activatedPercent . "). Recommended: monsters 24, animals 16, misc 12";
+	$recommendations[] = "エンティティ有効範囲を減らすと、有効周期が増加します(" . $activatedPercent . "). おすすめ: モンスター 24, 動物 16, その他 12";
 }
 if ($sample) {
 //    echo "Sample time is provided, so all percentages are based off that\n\n";
@@ -304,11 +290,11 @@ if ($sample) {
 		echo "<hr /><div class='title'>";
 		echo pad($plugin, 21, true);
 		if ($plugin != $subkey) {
-			echo "Total: $totals\tPct: $pct";
+			echo "全体: $totals\t割合: $pct";
 		}
 		echo "</div><hr />";
-		echo "<span class='head'><pre>  " . pad("Pct Total", 10) . "\t" . pad("Pct Tick", 8) . "\t"
-			. pad("Total", 8) . "\t" . pad("Avg", 9) . "\t" . pad("PerTick", 8) . "\t" . pad("Count", 10);
+		echo "<span class='head'><pre>  " . pad("全体に占める割合", 10) . "\t" . pad("毎Tick", 8) . "\t"
+			. pad("全体", 8) . "\t" . pad("平均", 9) . "\t" . pad("毎Tick", 8) . "\t" . pad("回数", 10);
 
 		echo "\t\tEvent\n</pre></span>";
 		echo "<hr />";
@@ -346,7 +332,7 @@ if ($sample) {
 			}
 			$event = trim($event);
                         if ($event == "Task: Unknown(Single)" && substr($plugin, 0, 6) == "dynmap" && $pct_tot_raw > 0.005) {
-                                $recommendations[] = "<b>You are using DynMap, and its rendering is causing you a decent amoung of lag due to it loading chunks.</b>";
+                                $recommendations[] = "<b>DynMapを使っているようです, チャンク読み込みにより、ラグを作ります.</b>";
                         }
 
 
@@ -357,19 +343,19 @@ if ($sample) {
 			}
 
 			if ($event == "** Full Server Tick") {
-				$sevent = showInfo('fst', 'Full Server Tick');
+				$sevent = showInfo('fst', 'サーバー全体のtick');
 				$serverLoad = $pct_tick;
 			}
 
 			if ($event == "** Connection Handler") {
-				$sevent = showInfo('connhandler', 'Connection Handler');
+				$sevent = showInfo('connhandler', '接続ハンドラー');
 			}
 
 			if ($event == "** activatedTickEntity") {
-				$sevent = showInfo('ate', 'Activated Entities');
+				$sevent = showInfo('ate', '活動的エンティティ');
 			}
 			if ($event == "Scheduler") {
-				$sevent = showInfo('sched', 'Plugin Scheduler');
+				$sevent = showInfo('sched', 'プラグインのスケジュラー');
 			}
 			$i++;
 			if (($plugin == $subkey && $i >= 11) || $pct_tot_raw < 0.0003 || ($plugin != "Minecraft" && $i >= 6 && $plugin != $subkey)) {
@@ -407,14 +393,10 @@ if ($sample) {
 	<br/><br/><br/>
 
 	<div style="text-align:center;margin:auto">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<ins class="adsbygoogle responsive-ad"
-		     style="display:inline-block;"
-		     data-ad-client="ca-pub-9196273905174409"
-		     data-ad-slot="2697476978"></ins>
-		<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
+        <?php
+        require_once("../template/ads.php");
+        \Starlis\Timings\echoad();
+        ?>
 
 	</div>
 	<br/><br/><br/>

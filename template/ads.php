@@ -38,3 +38,7 @@ function ad_link() { ?>
 	     data-ad-slot="2035978176"></ins>
 	<?php
 }
+
+function echoad(){
+    echo "hereisad";
+}
