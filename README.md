@@ -7,9 +7,14 @@ Aikar's Minecraft Timings Viewer (BlueLight フォーク)
 Installation
 ======
 composer,php,nodejsが必要です
+
  git clone https://github.com/BlueLightJapan/timings/
+ 
  npm rebuild
+ 
  php composer.php update
+ 
+ 
 
 Contributing
 ======
