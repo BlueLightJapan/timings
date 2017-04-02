@@ -207,7 +207,7 @@ ob_start();
 
 		<div style="text-align:center;margin:auto">
             <?php
-            require_once("../template/ads.php");
+            require_once("template/ads.php");
             \Starlis\Timings\echoad();
             ?>
 		</div>
@@ -239,7 +239,7 @@ ob_start();
 */ ?>
 <div style="width:100%;clear:left;">
  <?php
- require_once("../template/ads.php");
+ require_once("template/ads.php");
  \Starlis\Timings\echoad();
  ?>
 </div>
@@ -394,7 +394,7 @@ if ($sample) {
 
 	<div style="text-align:center;margin:auto">
         <?php
-        require_once("../template/ads.php");
+        require_once("template/ads.php");
         \Starlis\Timings\echoad();
         ?>
 
