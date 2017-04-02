@@ -20,10 +20,10 @@ if (preg_match($spigotConfigPattern, $legacyData, $configMatch)) {
 	$spigotConfig = $configMatch[1];
 	$legacyData = preg_replace($spigotConfigPattern, "", $legacyData);
 }
-if (preg_match('/Sample time (.+?) \(/', $legacyData, $sampm)) {
+if (preg_match('/測定時間 (.+?) \(/', $legacyData, $sampm)) {
 	$sample = $sampm[1];
 }
-$subkey = 'Minecraft - Breakdown (counted by other timings, not included in total)  ';
+$subkey = 'Minecraft - 内訳（その他のtimingの計測値で、合計に含まれはいません）';
 $report = array($subkey => array('Total' => 0), 'Minecraft' => array('Total' => 0));
 $current = null;
 $version = '';
@@ -490,7 +490,7 @@ if ($sample) {
 <?php
 
 function showInfo($id, $title) {
-	return "<b>$title</b><button class='learnmore' info='$id' onclick='showInfo(this)' title='$title'>Learn More</button></b>";
+	return "<b>$title</b><button class='learnmore' info='$id' onclick='showInfo(this)' title='$title'>さらに表示</button></b>";
 }
 
 $buffer = ob_get_contents();
@@ -502,15 +502,15 @@ if ($legacyData) {
 
 	echo "Total: " . round($total / 1000 / 1000 / 1000, 3) . "s (Ticks: $numTicks)";
 	if ($sample) {
-		echo " - Sample Time: " . round($sample / 1000 / 1000 / 1000, 3) . 's';
+		echo " - 測定時間: " . round($sample / 1000 / 1000 / 1000, 3) . 's';
 	}
 	if ($version) {
-		echo "  - Spigot Version: $version\n";
+		echo "  - Minecraftバージョン: $version\n";
 	}
 
 	$activatedPercent = 1;
 	if ($activatedEntityTicks && $numTicks) {
-		echo "Average Entities: ";
+		echo "平均エンティティ数: ";
 		$activatedAvgEntities = $activatedEntityTicks / $numTicks;
 		$totalAvgEntities = $entityTicks / $numTicks;
 		$activatedPercent = $activatedAvgEntities / $totalAvgEntities;
@@ -526,25 +526,25 @@ if ($legacyData) {
 		}
 
 	} else if ($entityTicks && $numTicks) {
-		echo " - Average Entities: " . number_format($entityTicks / $numTicks, 2);
+		echo " -　平均のエンティティ数: " . number_format($entityTicks / $numTicks, 2);
 	}
 	if ($playerTicks && $numTicks) {
-		echo " - Average Players: " . number_format($playerTicks / $numTicks, 2);
+		echo " - 平均のプレイヤー人数: " . number_format($playerTicks / $numTicks, 2);
 	}
 	if ($numTicks && $sample) {
 		$desiredTicks = $sample / 1000 / 1000 / 1000 * 20;
-		echo " - Average TPS: " . number_format($numTicks / $desiredTicks * 20, 2);
+		echo " - 平均TPS: " . number_format($numTicks / $desiredTicks * 20, 2);
 	}
-	echo " - Server Load: $serverLoad";
+	echo " - サーバー負荷: $serverLoad";
 	echo '</pre></span><hr />';
         if (preg_match("#[\\d,\\.]+#", $serverLoad, $m)) {
                 $serverLoad = str_replace(',', '', $m[0]);
                 $avgTPS = $numTicks / $desiredTicks * 20;
                 if ($serverLoad < 95 && $avgTPS < 19) {
-                        $recommendations[] = "<b>Notice: Your AVG TPS is less than 19 but server load is less than 95. This may mean your server is having memory issues (leak or not enough). " .
-                                "<br />This is usually a sign that Java is spending too much time Garbage Collecting. Try using -XX:+UseG1GC -XX:MaxGCPauseMillis=50 flags and increasing your -Xmx.</b>";
+                        $recommendations[] = "<b>お知らせ: 平均TPSが19以下ですが、サーバー負荷は95以下です. これはメモリが足りていないということです。" .
+                                "<br />ガーベージコレクションにかかる時間や、メモリ量を改善してみましょう</b>";
                 } else if ($serverLoad >= 99) {
-                        $recommendations[] = "<b>Your server is lagging because it is overloaded (99%+ Server Load). Try reducing View Distance if it is above 4.</b>";
+                        $recommendations[] = "<b>サーバー負荷が大きい (99%以上の負荷)ので、ラグが生じています. 処理量を減らすよう、</b>";
                 }
 
         }
