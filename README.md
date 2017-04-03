@@ -3,6 +3,7 @@ Aikar's Minecraft Timings Viewer (BlueLight フォーク)
 
  <http://timings.aikar.co/> の旧バージョン、日本語版です。　ｖ１バージョンとなります。
  
+ URL http://timings.haniokasai.com
  
 Installation
 ======
